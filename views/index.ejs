@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Home</title>
+  <link rel="stylesheet" href="/public/css/style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"
+    media="all">
+  <style>
+    .container {
+      height: 350px;
+    }
+
+    .navbar {
+      margin-bottom: 60px;
+    }
+
+    .title {
+      color: #e80016;
+      font-size: 25px;
+      margin-bottom: 15px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .card {
+      margin: 0 15px;
+    }
+
+    .navbar-nav {
+      margin-left: auto;
+      margin-right: 0 !important
+    }
+
+    .title-hr {
+      border-color: #e80016;
+      margin-bottom: 55px;
+    }
+
+    .btn-danger {
+      background-color: #e80016;
+      border-color: #e80016;
+    }
+
+    .nav-item {
+      background-color: #e80016;
+      border-color: #e80016;
+      margin-right: 15px;
+    }
+
+    .nav-link {
+      color: white !important;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">
+        <img width="100" src="https://images-na.ssl-images-amazon.com/images/I/31s65UrXsZL._SX355_.jpg">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="http://localhost:3000/">Home <span class="sr-only">(current)</span></a>
+          </li>
+
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Contact<span class="sr-only"></span></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <main>
+
+    <div class="container" style="display: flex; flex-wrap: wrap; padding-top: 15px">
+      <div class="title">
+        Choisissez la catégorie que vous cherchez et trouvez le proffessionnel dont vous avez besoins!
+        <hr class="title-hr">
+      </div>
+
+      <% for(let i=0; i < categories.length; i++){ %>
+
+      <div class="card shadow-sm p-3 mb-5 bg-white rounded" style="width: 12rem;">
+        <img src="<%= categories[i].picture %>" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">
+            <%= categories[i].name%>
+          </h5>
+          <p class="card-text">
+            <%= categories[i].description %>
+          </p>
+          <a href="http://localhost:3000/entreprise/<%= categories[i].id %>" class="btn btn-danger">Consulter</a>
+        </div>
+      </div>
+
+      <%}%>
+    </div>
+
+    </div>
+  </main>
+</body>
+
+</html>
